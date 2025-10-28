@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Inquiry Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f9fafc;
+      color: #333;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      resize: vertical;
+    }
+    textarea {
+      height: 100px;
+    }
+    .checkbox-group, .radio-group {
+      margin: 5px 0 15px;
+    }
+    .checkbox-group label, .radio-group label {
+      display: block;
+      font-weight: 400;
+    }
+    button {
+      display: block;
+      width: 100%;
+      background: #0078ff;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #005fd4;
+    }
+    .success {
+      background: #e7fbe7;
+      color: #2e7d32;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Website Inquiry Form</h1>
+
+  <form
+  action="https://formspree.io/f/xeopazkv"
+  method="POST"
+>
+    <p>Hi 👋 Thanks for your interest!  
+    I’m a web developer helping creators and influencers build professional websites to grow their brand and opportunities.</p>
+
+    <!-- Basic Info -->
+    <section>
+      <h3>🧩 Section 1: Basic Info</h3>
+      <label>Full Name *</label>
+      <input type="text" name="name" required>
+
+      <label>Instagram Handle / Social Link *</label>
+      <input type="text" name="social" placeholder="@username or https://instagram.com/..." required>
+
+      <label>Email *</label>
+      <input type="email" name="email" required>
+    </section>
+
+    <!-- Goals -->
+    <section>
+      <h3>🎯 Section 2: Goals</h3>
+      <label>What’s the main purpose of your website?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="purpose" value="Showcase my work / media kit"> Showcase my work / media kit</label>
+        <label><input type="checkbox" name="purpose" value="Get more brand collaborations"> Get more brand collaborations</label>
+        <label><input type="checkbox" name="purpose" value="Sell digital products or services"> Sell digital products or services</label>
+        <label><input type="checkbox" name="purpose" value="Grow my community or email list"> Grow my community or email list</label>
+        <label><input type="checkbox" name="purpose" value="Share blog posts or updates"> Share blog posts or updates</label>
+        <label><input type="checkbox" name="purpose" value="Other"> Other</label>
+      </div>
+
+      <label>What’s the #1 action you want visitors to take on your site?</label>
+      <input type="text" name="main_action" placeholder="e.g. book a call, buy a product, follow me">
+    </section>
+
+    <!-- Style -->
+    <section>
+      <h3>🎨 Section 3: Style & Inspiration</h3>
+      <label>How would you describe your brand style?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="style" value="Minimal / clean"> Minimal / clean</label>
+        <label><input type="checkbox" name="style" value="Bold / colorful"> Bold / colorful</label>
+        <label><input type="checkbox" name="style" value="Elegant / luxury"> Elegant / luxury</label>
+        <label><input type="checkbox" name="style" value="Fun / casual"> Fun / casual</label>
+        <label><input type="checkbox" name="style" value="Other"> Other</label>
+      </div>
+
+      <label>Drop a few links for inspiration</label>
+      <textarea name="inspiration" placeholder="Websites, pages, or Instagram profiles..."></textarea>
+    </section>
+
+    <!-- Features -->
+    <section>
+      <h3>🧱 Section 4: Content & Features</h3>
+      <label>Which pages or features do you need?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="features" value="Home"> Home</label>
+        <label><input type="checkbox" name="features" value="About"> About</label>
+        <label><input type="checkbox" name="features" value="Contact"> Contact</label>
+        <label><input type="checkbox" name="features" value="Gallery / Portfolio"> Gallery / Portfolio</label>
+        <label><input type="checkbox" name="features" value="Blog"> Blog</label>
+        <label><input type="checkbox" name="features" value="Shop / Store"> Shop / Store</label>
+        <label><input type="checkbox" name="features" value="Booking or calendar"> Booking or calendar</label>
+        <label><input type="checkbox" name="features" value="Email signup"> Email signup</label>
+        <label><input type="checkbox" name="features" value="Other"> Other</label>
+      </div>
+
+      <label>Do you already have your content ready?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="content_ready" value="Yes"> Yes, everything’s ready</label>
+        <label><input type="radio" name="content_ready" value="Partially"> Partially</label>
+        <label><input type="radio" name="content_ready" value="Not yet"> Not yet</label>
+      </div>
+    </section>
+
+    <!-- Technical -->
+    <section>
+      <h3>⚙️ Section 5: Technical Details</h3>
+      <label>Do you already have a domain or hosting?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="hosting" value="Yes"> Yes</label>
+        <label><input type="radio" name="hosting" value="No"> No</label>
+        <label><input type="radio" name="hosting" value="Not sure"> Not sure</label>
+      </div>
+
+      <label>Do you want to be able to update your site yourself later?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="update_self" value="Yes"> Yes</label>
+        <label><input type="radio" name="update_self" value="No"> No</label>
+        <label><input type="radio" name="update_self" value="Maybe"> Maybe</label>
+      </div>
+    </section>
+
+    <!-- Budget -->
+    <section>
+      <h3>💰 Section 6: Timeline & Budget</h3>
+      <label>When would you like to launch your website?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="timeline" value="Within 2 weeks"> Within 2 weeks</label>
+        <label><input type="radio" name="timeline" value="Within 1 month"> Within 1 month</label>
+        <label><input type="radio" name="timeline" value="Within 3 months"> Within 3 months</label>
+        <label><input type="radio" name="timeline" value="Just exploring ideas"> Just exploring ideas</label>
+      </div>
+
+      <label>Do you have a budget range in mind? (optional)</label>
+      <input type="text" name="budget" placeholder="$500–$1000">
+    </section>
+
+    <!-- Notes -->
+    <section>
+      <h3>💬 Section 7: Final Note</h3>
+      <label>Anything else you’d like to share or specific ideas you have?</label>
+      <textarea name="notes"></textarea>
+    </section>
+
+    <div class="success" id="successMsg">✅ Thanks! Your form has been submitted.</div>
+    <button type="submit">Send Project Details 🚀</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('inquiryForm');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you can add Formspree or Netlify integration
+      success.style.display = 'block';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
