@@ -1,218 +1,1363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Inquiry Form</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #f9fafc;
-      color: #333;
-      padding: 40px;
-    }
-    h1 {
-      text-align: center;
-      color: #222;
-    }
-    form {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    label {
-      font-weight: 600;
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      resize: vertical;
-    }
-    textarea {
-      height: 100px;
-    }
-    .checkbox-group, .radio-group {
-      margin: 5px 0 15px;
-    }
-    .checkbox-group label, .radio-group label {
-      display: block;
-      font-weight: 400;
-    }
-    button {
-      display: block;
-      width: 100%;
-      background: #0078ff;
-      color: white;
-      border: none;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #005fd4;
-    }
-    .success {
-      background: #e7fbe7;
-      color: #2e7d32;
-      padding: 15px;
-      border-radius: 6px;
-      text-align: center;
-      display: none;
-      margin-bottom: 15px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.V. Tutorials | Premium Academic Excellence</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0B1120;
+            --gold: #D97706;
+            --cream: #FEFCE8;
+            --light-navy: #1E293B;
+            --light-gold: #FBBF24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+        }
+        
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(11, 17, 32, 0.85) 0%, rgba(11, 17, 32, 0.7) 100%);
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(11, 17, 32, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dot-pattern {
+            background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.15;
+        }
+        
+        .wave-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D97706' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .preloader-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .preloader-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .loading-progress {
+            width: 100%;
+            height: 100%;
+            background-color: var(--gold);
+            border-radius: 3px;
+            animation: loading 1.5s ease-in-out;
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(217, 119, 6, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .topper-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            object-fit: cover;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--gold);
+        }
+        
+        .stats-counter {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .sticky-mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            padding: 10px;
+        }
+        
+        .sticky-mobile-bar a {
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .course-card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .course-card:hover .course-image {
+            transform: scale(1.05);
+        }
+        
+        .course-image {
+            height: 200px;
+            transition: transform 0.5s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .sticky-mobile-bar {
+                display: flex;
+            }
+            
+            .hero-bg {
+                background-attachment: scroll;
+            }
+            
+            .stats-counter {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0B1120',
+                        gold: '#D97706',
+                        cream: '#FEFCE8',
+                        'light-navy': '#1E293B',
+                        'light-gold': '#FBBF24'
+                    },
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="font-outfit">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">S.V. Tutorials</div>
+            <p class="text-white mb-6">Premium Academic Excellence</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
 
-  <h1>Website Inquiry Form</h1>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 py-4 px-6 md:px-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-playfair font-bold text-white">
+                    <span class="text-gold">S.V.</span> Tutorials
+                </div>
+                <div class="hidden md:block ml-4 text-sm text-gray-300">
+                    <span class="font-semibold text-gold">ట్యుటోరియల్స్</span> | Personalized Excellence
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-gold transition-colors font-medium">Home</a>
+                <a href="#courses" class="text-white hover:text-gold transition-colors font-medium">Courses</a>
+                <a href="#hall-of-fame" class="text-white hover:text-gold transition-colors font-medium">Hall of Fame</a>
+                <a href="#about" class="text-white hover:text-gold transition-colors font-medium">About</a>
+                <a href="#testimonials" class="text-white hover:text-gold transition-colors font-medium">Testimonials</a>
+                <a href="#contact" class="text-white hover:text-gold transition-colors font-medium">Contact</a>
+            </div>
+            
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-gold text-white px-6 py-2 rounded-lg font-medium hover:bg-light-gold transition-colors">
+                    Enquire Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-navy absolute top-full left-0 w-full hidden shadow-lg">
+            <div class="px-6 py-8 space-y-6">
+                <a href="#home" class="block text-white hover:text-gold transition-colors font-medium text-lg">Home</a>
+                <a href="#courses" class="block text-white hover:text-gold transition-colors font-medium text-lg">Courses</a>
+                <a href="#hall-of-fame" class="block text-white hover:text-gold transition-colors font-medium text-lg">Hall of Fame</a>
+                <a href="#about" class="block text-white hover:text-gold transition-colors font-medium text-lg">About</a>
+                <a href="#testimonials" class="block text-white hover:text-gold transition-colors font-medium text-lg">Testimonials</a>
+                <a href="#contact" class="block text-white hover:text-gold transition-colors font-medium text-lg">Contact</a>
+                <div class="pt-4">
+                    <a href="#contact" class="bg-gold text-white px-6 py-3 rounded-lg font-medium hover:bg-light-gold transition-colors block text-center">
+                        Enquire Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <form
-  action="https://formspree.io/f/xeopazkv"
-  method="POST"
->
-    <p>Hi 👋 Thanks for your interest!  
-    I’m a web developer helping creators and influencers build professional websites to grow their brand and opportunities.</p>
-
-    <!-- Basic Info -->
-    <section>
-      <h3>🧩 Section 1: Basic Info</h3>
-      <label>Full Name *</label>
-      <input type="text" name="name" required>
-
-      <label>Instagram Handle / Social Link *</label>
-      <input type="text" name="social" placeholder="@username or https://instagram.com/..." required>
-
-      <label>Email *</label>
-      <input type="email" name="email" required>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative pt-20">
+        <!-- SVG Pattern Overlay -->
+        <div class="absolute inset-0 wave-pattern opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Premium Academic Excellence</div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white leading-tight mb-6">
+                        Where <span class="text-gold">Concept-Oriented</span> Teaching Meets <span class="text-gold">Personalized</span> Attention
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-10 max-w-2xl">
+                        At S.V. Tutorials, we transform academic potential into excellence through personalized mentoring and proven teaching methodologies.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#courses" class="pulse-btn bg-gold text-white px-8 py-4 rounded-lg font-semibold hover:bg-light-gold transition-colors text-lg">
+                            Explore Courses <i class="ml-2 fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="glass-card text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-colors text-lg">
+                            Free Trial Class
+                        </a>
+                    </div>
+                    
+                    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div>
+                            <div class="text-3xl font-bold text-white mb-2">15+</div>
+                            <div class="text-gray-300 text-sm">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-white mb-2" id="studentCount">500+</div>
+                            <div class="text-gray-300 text-sm">Students Transformed</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-white mb-2">98%</div>
+                            <div class="text-gray-300 text-sm">Success Rate</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-white mb-2">1:8</div>
+                            <div class="text-gray-300 text-sm">Student-Teacher Ratio</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative">
+                    <div class="glass-card rounded-2xl p-8 shadow-2xl">
+                        <div class="text-center mb-6">
+                            <div class="text-2xl font-playfair font-bold text-white mb-2">Director & Senior Faculty</div>
+                            <div class="text-gold text-xl font-semibold">P. Yallaredhi</div>
+                            <div class="text-gray-300">M.Sc., Mathematics</div>
+                            <div class="text-gray-300 mt-2">Senior Maths & Physics Lecturer</div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-center text-gray-200 mb-4">
+                                <i class="fas fa-map-marker-alt text-gold mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Location</div>
+                                    <div class="text-sm">శాస్త్రిబొమ్మ దగ్గర, న్యూపాల్‌వంచ</div>
+                                    <div class="text-sm">(Near Shastri Bomma, New Palvancha)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center text-gray-200">
+                                <i class="fas fa-phone-alt text-gold mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Contact</div>
+                                    <div class="text-lg font-semibold">9032062779</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-700 pt-6">
+                            <div class="text-center text-white font-medium mb-4">Personalized Attention Guaranteed</div>
+                            <div class="flex justify-center space-x-4">
+                                <div class="text-center">
+                                    <div class="text-gold text-2xl font-bold">8</div>
+                                    <div class="text-gray-300 text-xs">Max Students</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-gold text-2xl font-bold">2</div>
+                                    <div class="text-gray-300 text-xs">Weekly Tests</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-gold text-2xl font-bold">24/7</div>
+                                    <div class="text-gray-300 text-xs">Doubt Support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-gold rounded-full opacity-20"></div>
+                    <div class="absolute -bottom-6 -left-6 w-16 h-16 border-4 border-gold rounded-full opacity-30"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Goals -->
-    <section>
-      <h3>🎯 Section 2: Goals</h3>
-      <label>What’s the main purpose of your website?</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="purpose" value="Showcase my work / media kit"> Showcase my work / media kit</label>
-        <label><input type="checkbox" name="purpose" value="Get more brand collaborations"> Get more brand collaborations</label>
-        <label><input type="checkbox" name="purpose" value="Sell digital products or services"> Sell digital products or services</label>
-        <label><input type="checkbox" name="purpose" value="Grow my community or email list"> Grow my community or email list</label>
-        <label><input type="checkbox" name="purpose" value="Share blog posts or updates"> Share blog posts or updates</label>
-        <label><input type="checkbox" name="purpose" value="Other"> Other</label>
-      </div>
-
-      <label>What’s the #1 action you want visitors to take on your site?</label>
-      <input type="text" name="main_action" placeholder="e.g. book a call, buy a product, follow me">
+    <!-- Courses Section -->
+    <section id="courses" class="py-24 relative">
+        <div class="absolute top-0 right-0 w-64 h-64 dot-pattern"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Academic Programs</div>
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Premium Courses for <span class="text-gold">Every Academic Level</span></h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Our meticulously designed courses cater to students from primary to intermediate levels with a focus on conceptual clarity and exam excellence.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-image bg-gradient-to-r from-navy to-light-navy flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-5xl font-playfair font-bold text-white mb-2">10<sup>th</sup></div>
+                            <div class="text-xl font-semibold text-gold">Class (SSC)</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">SSC Board - CCE Pattern</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive coaching for Regular & Supplementary students with focus on CCE pattern, exam strategies, and concept reinforcement.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">₹ 2,500<span class="text-sm font-normal text-gray-500">/month</span></div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-image bg-gradient-to-r from-gold to-light-gold flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-5xl font-playfair font-bold text-white mb-2">Inter</div>
+                            <div class="text-xl font-semibold text-navy">Maths | Physics | Chemistry</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">Intermediate (MPC)</h3>
+                        <p class="text-gray-600 mb-6">Specialized coaching for Regular & Supplementary students with emphasis on problem-solving, numerical ability, and competitive exam preparation.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">₹ 3,500<span class="text-sm font-normal text-gray-500">/month</span></div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-image bg-gradient-to-r from-navy to-gold flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-5xl font-playfair font-bold text-white mb-2">CBSE</div>
+                            <div class="text-xl font-semibold text-white">All Classes</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">CBSE & Lower Classes</h3>
+                        <p class="text-gray-600 mb-6">Personalized coaching for CBSE X Class and students from L.K.G to IX Class (State & CBSE) with focus on building strong academic foundations.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">₹ 2,000<span class="text-sm font-normal text-gray-500">/month</span></div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 4 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-image bg-gradient-to-r from-light-navy to-navy flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-5xl font-playfair font-bold text-white mb-2">Diploma</div>
+                            <div class="text-xl font-semibold text-gold">All Branches</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">Diploma Courses</h3>
+                        <p class="text-gray-600 mb-6">Specialized coaching for Diploma students covering Mathematics, Physics, Chemistry & all branch-specific subjects for Regular & Supplementary students.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">₹ 3,000<span class="text-sm font-normal text-gray-500">/month</span></div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 5 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-image bg-gradient-to-r from-gold to-navy flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-5xl font-playfair font-bold text-white mb-2">Entrance</div>
+                            <div class="text-xl font-semibold text-white">Coaching</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">Entrance Exam Preparation</h3>
+                        <p class="text-gray-600 mb-6">Specialized coaching for Polytechnic (CEEP), TSRJC, Navodaya entrance exams with comprehensive test series and mock exam practice.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">₹ 4,000<span class="text-sm font-normal text-gray-500">/month</span></div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 6 -->
+                <div class="course-card hover-lift bg-white shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-image bg-gradient-to-r from-navy to-light-gold flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-4xl font-playfair font-bold text-white mb-2">Personalized</div>
+                            <div class="text-xl font-semibold text-white">One-on-One</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-playfair font-bold mb-4">Personal Tutoring</h3>
+                        <p class="text-gray-600 mb-6">Fully customized one-on-one sessions tailored to individual learning needs, pace, and academic goals with flexible scheduling.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-gold font-bold text-xl">Custom</div>
+                            <a href="#contact" class="bg-navy text-white px-6 py-2 rounded-lg font-medium hover:bg-light-navy transition-colors">
+                                Enquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Style -->
-    <section>
-      <h3>🎨 Section 3: Style & Inspiration</h3>
-      <label>How would you describe your brand style?</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="style" value="Minimal / clean"> Minimal / clean</label>
-        <label><input type="checkbox" name="style" value="Bold / colorful"> Bold / colorful</label>
-        <label><input type="checkbox" name="style" value="Elegant / luxury"> Elegant / luxury</label>
-        <label><input type="checkbox" name="style" value="Fun / casual"> Fun / casual</label>
-        <label><input type="checkbox" name="style" value="Other"> Other</label>
+    <!-- Hall of Fame Section -->
+    <section id="hall-of-fame" class="py-24 bg-navy text-white relative">
+        <div class="absolute inset-0 dot-pattern opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Our Legacy</div>
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">
+    <span class="text-yellow-400 drop-shadow-[0_0_10px_#FFD700]">Hall of</span> 
+    <span class="text-gold">Fame</span>
+</h2>        <p class="text-gray-300 max-w-3xl mx-auto text-lg">
+                    Celebrating the exceptional achievements of our students who have excelled in academics and competitive exams.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Topper 1 -->
+<div class="text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300">
+
+  <!-- Stock Image -->
+  <div class="relative w-28 h-28 mx-auto mb-4">
+    <img
+      src="https://images.unsplash.com/photo-1527980965255-d3b416303d12"
+      alt="Rajesh Sharma"
+      class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl"
+    />
+    <span class="absolute inset-0 rounded-full ring-2 ring-gold/60"></span>
+  </div>
+
+  <!-- Name -->
+  <h3 class="text-2xl font-playfair font-bold mb-1">Rajesh Sharma</h3>
+
+  <!-- Rank -->
+  <div class="text-gold font-semibold mb-1">
+    Polytechnic Entrance – AIR 45
+  </div>
+
+  <!-- Context -->
+  <p class="text-sm text-slate-500 mb-3">
+    CEEP • Mathematics • 2023 Batch
+  </p>
+
+  <!-- Badge -->
+  <div class="bg-light-navy rounded-full px-4 py-1 inline-block text-sm mb-4">
+    <i class="fas fa-award text-gold mr-2"></i> State Rank Holder
+  </div>
+
+  <!-- Stats -->
+<div class="flex justify-center gap-3 mb-4 text-sm">
+  <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full font-semibold">
+    96% Academic Score
+  </span>
+  <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full font-medium">
+    6 Months Preparation
+  </span>
+</div>
+
+  <!-- Quote -->
+  <p class="text-sm italic text-slate-600 max-w-xs mx-auto">
+    “Concept clarity and disciplined practice made the difference.”
+  </p>
+
+</div>
+
+                
+                <!-- Topper 2 -->
+                <div class="text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300"
+     data-aos="fade-up" data-aos-delay="200">
+
+  <!-- Stock Image -->
+  <div class="relative w-28 h-28 mx-auto mb-5">
+    <img
+      src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+      alt="Sneha Reddy"
+      class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl grayscale hover:grayscale-0 transition duration-500"
+    />
+    <!-- Gold accent ring -->
+    <span class="absolute inset-0 rounded-full ring-2 ring-gold/60"></span>
+  </div>
+
+  <!-- Name -->
+  <h3 class="text-2xl font-playfair font-bold mb-1">
+    Sneha Reddy
+  </h3>
+
+  <!-- Result -->
+  <div class="text-gold font-semibold mb-1">
+    Intermediate – 978 / 1000
+  </div>
+
+  <!-- Stream -->
+  <p class="text-sm text-slate-500 mb-3">
+    MPC • 2024 Batch
+  </p>
+
+  <!-- Badge -->
+  <div class="bg-light-navy rounded-full px-4 py-1 inline-flex items-center text-sm mb-4">
+    <i class="fas fa-medal text-gold mr-2"></i>
+    MPC Topper
+  </div>
+
+  <!-- Mini stats -->
+<div class="flex justify-center gap-3 text-sm mb-4">
+  <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full font-semibold">
+    97.8% Score
+  </span>
+  <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full font-medium">
+    12 Months Preparation
+  </span>
+</div>
+
+
+  <!-- Quote -->
+  <p class="text-sm italic text-slate-600 max-w-xs mx-auto">
+    “Strong fundamentals and daily revision changed everything.”
+  </p>
+
+</div>
+
+                
+                <!-- Topper 3 -->
+<!-- Topper 3 -->
+<div class="text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300"
+     data-aos="fade-up" data-aos-delay="300">
+
+  <!-- Stock Image -->
+  <div class="relative w-28 h-28 mx-auto mb-5">
+    <img
+      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+      alt="Karthik Verma"
+      class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl grayscale hover:grayscale-0 transition duration-500"
+    />
+    <span class="absolute inset-0 rounded-full ring-2 ring-gold/60"></span>
+  </div>
+
+  <h3 class="text-2xl font-playfair font-bold mb-1">
+    Karthik Verma
+  </h3>
+
+  <div class="text-gold font-semibold mb-1">
+    Polytechnic Entrance – AIR 87
+  </div>
+
+  <p class="text-sm text-slate-500 mb-3">
+    CEEP • 2024 Batch
+  </p>
+
+  <div class="bg-light-navy rounded-full px-4 py-1 inline-flex items-center text-sm mb-4">
+    <i class="fas fa-star text-gold mr-2"></i>
+    CEEP Qualified
+  </div>
+
+<div class="flex justify-center gap-3 text-sm mb-4">
+  <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full font-semibold">
+    Top 1%
+  </span>
+  <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full font-medium">
+    8 Months Preparation
+  </span>
+</div>
+
+
+  <p class="text-sm italic text-slate-600 max-w-xs mx-auto">
+    “Focused practice and mock tests made ranking achievable.”
+  </p>
+</div>
+
+                
+                <!-- Topper 4 -->
+                <!-- Topper 4 -->
+<div class="text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300"
+     data-aos="fade-up" data-aos-delay="400">
+
+  <!-- Stock Image -->
+  <div class="relative w-28 h-28 mx-auto mb-5">
+    <img
+      src="https://images.unsplash.com/photo-1554151228-14d9def656e4"
+      alt="Anjali Patel"
+      class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl grayscale hover:grayscale-0 transition duration-500"
+    />
+    <span class="absolute inset-0 rounded-full ring-2 ring-gold/60"></span>
+  </div>
+
+  <h3 class="text-2xl font-playfair font-bold mb-1">
+    Anjali Patel
+  </h3>
+
+  <div class="text-gold font-semibold mb-1">
+    Navodaya Entrance – Selected
+  </div>
+
+  <p class="text-sm text-slate-500 mb-3">
+    JNVST • 2024 Intake
+  </p>
+
+  <div class="bg-light-navy rounded-full px-4 py-1 inline-flex items-center text-sm mb-4">
+    <i class="fas fa-award text-gold mr-2"></i>
+    Scholarship Winner
+  </div>
+
+<div class="flex justify-center gap-3 text-sm mb-4">
+  <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full font-semibold">
+    All-India Selection
+  </span>
+  <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full font-medium">
+    Foundation Course
+  </span>
+</div>
+
+  <p class="text-sm italic text-slate-600 max-w-xs mx-auto">
+    “Daily mentoring and clarity in basics built confidence.”
+  </p>
+</div>
+
+            
+           <div class="text-center mt-20" data-aos="fade-up">
+
+  <div class="inline-block bg-gradient-to-r from-gold to-light-gold p-[2px] rounded-2xl shadow-xl">
+    <div class="bg-navy rounded-2xl px-10 py-6">
+
+      <div class="flex flex-col sm:flex-row items-center gap-6">
+
+        <!-- Counter -->
+        <div class="text-5xl font-bold text-gold stats-counter" id="yearsCount">
+          0
+        </div>
+
+        <!-- Text -->
+        <div class="text-center sm:text-left">
+          <div class="text-2xl font-semibold">
+            Years of Academic Excellence
+          </div>
+          <div class="text-gray-300 text-sm mt-1 max-w-sm">
+            Trusted by students and parents for consistent results,
+            disciplined mentoring, and long-term success.
+          </div>
+        </div>
+
       </div>
 
-      <label>Drop a few links for inspiration</label>
-      <textarea name="inspiration" placeholder="Websites, pages, or Instagram profiles..."></textarea>
+    </div>
+  </div>
+
+</div>
+</SECTION>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-cream to-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter mb-4" id="counter1">0</div>
+                    <div class="text-xl font-semibold text-navy">Students Transformed</div>
+                    <div class="text-gray-600 mt-2">Over 15 years of academic excellence</div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter mb-4" id="counter2">0</div>
+                    <div class="text-xl font-semibold text-navy">Success Rate</div>
+                    <div class="text-gray-600 mt-2">Consistent year-on-year improvement</div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter mb-4" id="counter3">0</div>
+                    <div class="text-xl font-semibold text-navy">Hours of Teaching</div>
+                    <div class="text-gray-600 mt-2">Dedicated to student development</div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stats-counter mb-4" id="counter4">0%</div>
+                    <div class="text-xl font-semibold text-navy">Parent Satisfaction</div>
+                    <div class="text-gray-600 mt-2">Based on annual feedback surveys</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Features -->
-    <section>
-      <h3>🧱 Section 4: Content & Features</h3>
-      <label>Which pages or features do you need?</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="features" value="Home"> Home</label>
-        <label><input type="checkbox" name="features" value="About"> About</label>
-        <label><input type="checkbox" name="features" value="Contact"> Contact</label>
-        <label><input type="checkbox" name="features" value="Gallery / Portfolio"> Gallery / Portfolio</label>
-        <label><input type="checkbox" name="features" value="Blog"> Blog</label>
-        <label><input type="checkbox" name="features" value="Shop / Store"> Shop / Store</label>
-        <label><input type="checkbox" name="features" value="Booking or calendar"> Booking or calendar</label>
-        <label><input type="checkbox" name="features" value="Email signup"> Email signup</label>
-        <label><input type="checkbox" name="features" value="Other"> Other</label>
-      </div>
-
-      <label>Do you already have your content ready?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="content_ready" value="Yes"> Yes, everything’s ready</label>
-        <label><input type="radio" name="content_ready" value="Partially"> Partially</label>
-        <label><input type="radio" name="content_ready" value="Not yet"> Not yet</label>
-      </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 relative">
+        <div class="absolute bottom-0 left-0 w-64 h-64 dot-pattern"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Student & Parent Voices</div>
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">What Our <span class="text-gold">Community</span> Says</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Real testimonials from students and parents about their transformative experience at S.V. Tutorials.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-light-gold rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            R
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Rahul's Mother</div>
+                            <div class="text-gray-500">Parent of 10th Class Student</div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex text-gold mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "My son's performance improved dramatically after joining S.V. Tutorials. The personalized attention and weekly tests made all the difference. He scored 98.7% in SSC!"
+                        </p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <i class="far fa-calendar-alt mr-2"></i> 2 months ago
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-light-gold rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            S
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Sneha Reddy</div>
+                            <div class="text-gray-500">Intermediate MPC Student</div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex text-gold mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "The concept-oriented teaching approach helped me understand Physics and Mathematics deeply rather than just memorizing formulas. I scored 978/1000 in Intermediate!"
+                        </p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <i class="far fa-calendar-alt mr-2"></i> 1 month ago
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-light-gold rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            K
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Karthik's Father</div>
+                            <div class="text-gray-500">Parent of Polytechnic Student</div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex text-gold mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "The entrance coaching for Polytechnic was exceptional. The mock tests and doubt-clearing sessions were incredibly helpful. My son secured AIR 87 in CEEP!"
+                        </p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <i class="far fa-calendar-alt mr-2"></i> 3 weeks ago
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Technical -->
-    <section>
-      <h3>⚙️ Section 5: Technical Details</h3>
-      <label>Do you already have a domain or hosting?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="hosting" value="Yes"> Yes</label>
-        <label><input type="radio" name="hosting" value="No"> No</label>
-        <label><input type="radio" name="hosting" value="Not sure"> Not sure</label>
-      </div>
-
-      <label>Do you want to be able to update your site yourself later?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="update_self" value="Yes"> Yes</label>
-        <label><input type="radio" name="update_self" value="No"> No</label>
-        <label><input type="radio" name="update_self" value="Maybe"> Maybe</label>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-b from-white to-cream">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Our Philosophy</div>
+                    <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-8">Concept-Oriented <span class="text-gold">Teaching</span> with <span class="text-gold">Personalized</span> Attention</h2>
+                    <p class="text-gray-700 text-lg mb-8">
+                        At S.V. Tutorials, we believe that true learning happens when students understand concepts deeply rather than just memorizing information. Our teaching methodology is built on this principle, combined with the personalized attention that each student deserves.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-friends text-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-navy mb-2">Small Batch Sizes</h3>
+                                <p class="text-gray-600">Maximum 8 students per batch to ensure individual attention and interactive learning.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-brain text-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-navy mb-2">Concept-First Approach</h3>
+                                <p class="text-gray-600">We focus on building strong conceptual foundations before moving to problem-solving.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-chart-line text-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-navy mb-2">Progress Tracking</h3>
+                                <p class="text-gray-600">Regular assessments and progress reports keep students and parents informed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-10">
+                        <div class="text-center mb-10">
+                            <div class="w-40 h-40 mx-auto bg-gradient-to-br from-gold to-light-gold rounded-full flex items-center justify-center text-white text-6xl font-bold mb-6">
+                                PY
+                            </div>
+                            <h3 class="text-3xl font-playfair font-bold text-navy mb-2">P. Yallaredhi</h3>
+                            <div class="text-gold font-semibold text-xl mb-3">M.Sc., Mathematics</div>
+                            <div class="text-gray-600">Senior Maths & Physics Lecturer</div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy mr-4">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold">15+ Years Experience</div>
+                                    <div class="text-sm text-gray-600">Teaching Mathematics & Physics</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy mr-4">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold">500+ Students Transformed</div>
+                                    <div class="text-sm text-gray-600">Academic excellence across boards</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center text-navy mr-4">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold">Specialization in Competitive Exams</div>
+                                    <div class="text-sm text-gray-600">Polytechnic, TSRJC, Navodaya coaching</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-full -z-10"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Budget -->
-    <section>
-      <h3>💰 Section 6: Timeline & Budget</h3>
-      <label>When would you like to launch your website?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="timeline" value="Within 2 weeks"> Within 2 weeks</label>
-        <label><input type="radio" name="timeline" value="Within 1 month"> Within 1 month</label>
-        <label><input type="radio" name="timeline" value="Within 3 months"> Within 3 months</label>
-        <label><input type="radio" name="timeline" value="Just exploring ideas"> Just exploring ideas</label>
-      </div>
-
-      <label>Do you have a budget range in mind? (optional)</label>
-      <input type="text" name="budget" placeholder="$500–$1000">
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-navy text-white relative">
+        <div class="absolute inset-0 wave-pattern opacity-5"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-sm font-medium text-gold mb-4 uppercase tracking-widest">Get In Touch</div>
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Start Your <span class="text-gold">Academic Journey</span> Today</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-lg">
+                    Book a free trial class or schedule a consultation with our senior faculty to discuss your academic goals.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <h3 class="text-3xl font-playfair font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-gold/20 p-4 rounded-xl mr-6">
+                                <i class="fas fa-map-marker-alt text-gold text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Institute Location</h4>
+                                <p class="text-gray-300 mb-1">శాస్త్రిబొమ్మ దగ్గర, న్యూపాల్‌వంచ</p>
+                                <p class="text-gray-300">(Near Shastri Bomma, New Palvancha)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/20 p-4 rounded-xl mr-6">
+                                <i class="fas fa-phone-alt text-gold text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Contact Number</h4>
+                                <p class="text-2xl font-bold text-gold mb-1">9032062779</p>
+                                <p class="text-gray-300">Available 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gold/20 p-4 rounded-xl mr-6">
+                                <i class="fas fa-user-tie text-gold text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Director & Senior Faculty</h4>
+                                <p class="text-gray-300 text-lg mb-1">P. Yallaredhi (M.Sc., Maths)</p>
+                                <p class="text-gray-300">Senior Maths & Physics Lecturer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-light-navy rounded-2xl p-8">
+                        <h4 class="text-2xl font-playfair font-bold mb-6 text-white drop-shadow-[0_0_10px_#ffffff]">
+    Why Choose Us?
+</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                <span>Personalized attention in small batches</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                <span>Concept-oriented teaching methodology</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                <span>Proven track record of academic excellence</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                <span>Flexible timing for working students</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                <span>Regular progress reports to parents</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <div class="glass-card rounded-2xl p-10">
+                        <h3 class="text-3xl font-playfair font-bold mb-8">Enquiry Form</h3>
+                        
+                        <form id="enquiryForm">
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Full Name</label>
+                                    <input type="text" class="w-full bg-white/10 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold" placeholder="Enter your name" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Phone Number</label>
+                                    <input type="tel" class="w-full bg-white/10 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold" placeholder="Enter your phone number" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Student Class/Course</label>
+                                    <select class="w-full bg-white/10 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold" required>
+                                        <option value="" disabled selected>Select class/course</option>
+                                        <option value="10th">10th Class (SSC)</option>
+                                        <option value="inter">Intermediate (MPC)</option>
+                                        <option value="diploma">Diploma Courses</option>
+                                        <option value="cbse">CBSE & Lower Classes</option>
+                                        <option value="entrance">Entrance Coaching</option>
+                                        <option value="personal">Personal Tutoring</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Message</label>
+                                    <textarea class="w-full bg-white/10 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold" rows="4" placeholder="Tell us about your requirements or questions"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <button type="submit" class="w-full bg-gold text-navy font-bold py-4 rounded-lg hover:bg-light-gold transition-colors text-lg">
+                                        Request Free Trial Class
+                                    </button>
+                                </div>
+                                
+                                <div class="text-center text-gray-400 text-sm">
+                                    We'll contact you within 24 hours to schedule your free trial class
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Notes -->
-    <section>
-      <h3>💬 Section 7: Final Note</h3>
-      <label>Anything else you’d like to share or specific ideas you have?</label>
-      <textarea name="notes"></textarea>
-    </section>
+    <!-- Footer -->
+    <footer class="bg-light-navy text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="text-3xl font-playfair font-bold mb-6">
+                        <span class="text-gold">S.V.</span> Tutorials
+                    </div>
+                    <p class="text-gray-400 mb-8">
+                        Premium academic coaching with personalized attention and concept-oriented teaching for students from primary to intermediate levels.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-navy w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-navy w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="bg-navy w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-8">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#home" class="text-gray-400 hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">Courses</a></li>
+                        <li><a href="#hall-of-fame" class="text-gray-400 hover:text-gold transition-colors">Hall of Fame</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-gold transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-8">Our Courses</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">10th Class (SSC)</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">Intermediate (MPC)</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">Diploma Courses</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">CBSE & Lower Classes</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-gold transition-colors">Entrance Coaching</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-8">Contact Info</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mr-3 mt-1"></i>
+                            <span class="text-gray-400">శాస్త్రిబొమ్మ దగ్గర, న్యూపాల్‌వంచ</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-gold mr-3"></i>
+                            <span class="text-gray-400">9032062779</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-user-tie text-gold mr-3"></i>
+                            <span class="text-gray-400">P. Yallaredhi (M.Sc., Maths)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500">© <span id="currentYear"></span> S.V. Tutorials. All rights reserved. | S.V. ట్యుటోరియల్స్</p>
+                <p class="text-gray-500 text-sm mt-2">Premium Academic Excellence Since 2008</p>
+            </div>
+        </div>
+    </footer>
 
-    <div class="success" id="successMsg">✅ Thanks! Your form has been submitted.</div>
-    <button type="submit">Send Project Details 🚀</button>
-  </form>
+    <!-- Sticky Mobile Bar -->
+    <div class="sticky-mobile-bar">
+        <a href="tel:9032062779" class="bg-gold text-white py-3 rounded-lg font-bold text-center">
+            <i class="fas fa-phone-alt mr-2"></i> Call Now
+        </a>
+        <a href="https://wa.me/919032062779" class="bg-green-600 text-white py-3 rounded-lg font-bold text-center">
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+        </a>
+    </div>
 
-  <script>
-    const form = document.getElementById('inquiryForm');
-    const success = document.getElementById('successMsg');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Here you can add Formspree or Netlify integration
-      success.style.display = 'block';
-      form.reset();
-    });
-  </script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                this.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                this.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobileMenu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Animated counters
+        function animateCounter(id, start, end, duration, suffix = '') {
+            let obj = document.getElementById(id);
+            let startTime = null;
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                obj.innerHTML = value + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Initialize counters when scrolled into view
+        let countersInitialized = false;
+        
+        function initCounters() {
+            if (!countersInitialized) {
+                // Student count
+                animateCounter('studentCount', 0, 500, 2000, '+');
+                
+                // Years of excellence
+                animateCounter('yearsCount', 0, 15, 2000, '+');
+                
+                // Other counters
+                animateCounter('counter1', 0, 500, 2000, '+');
+                animateCounter('counter2', 0, 98, 2000, '%');
+                animateCounter('counter3', 0, 25000, 2500, '+');
+                animateCounter('counter4', 0, 99, 2000, '%');
+                
+                countersInitialized = true;
+            }
+        }
+        
+        // Check if counters section is in view
+        function checkCountersVisibility() {
+            const countersSection = document.getElementById('hall-of-fame');
+            const sectionPosition = countersSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (sectionPosition < screenPosition) {
+                initCounters();
+            }
+        }
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', checkCountersVisibility);
+        
+        // Form submission
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server
+            // For this demo, we'll just show a success message
+            alert('Thank you for your enquiry! We will contact you within 24 hours to schedule your free trial class.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
